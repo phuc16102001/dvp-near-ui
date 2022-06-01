@@ -5,12 +5,11 @@ import { baseDecode } from 'borsh';
 import { PublicKey } from 'near-api-js/lib/utils';
 import BN from 'bn.js';
 
-const nearConfig = getConfig(process.env.NODE_ENV || 'development')
+export const nearConfig = getConfig(process.env.NODE_ENV || 'development')
 export const ONE_YOCTO_NEAR = '0.000000000000000000000001';
 export const STAKING_STORAGE_AMOUNT = '0.01';
 
 export async function initContract() {
-
   const near = new Near({
     keyStore: new keyStores.BrowserLocalStorageKeyStore(),
     headers: {},
@@ -58,42 +57,6 @@ export async function executeMultipleTransactions(transactions, callbackUrl) {
   console.log(nearTransactions)
   await window.walletConnection.requestSignTransactions(nearTransactions, callbackUrl);
 };
-
-export async function transferToken(transferTo, transferAmount) {
-  let transferTx = {
-    receiverId: nearConfig.contractName,
-    functionCalls: [{
-      methodName: "ft_transfer",
-      args: {
-        receiver_id: transferTo,
-        amount: String(transferAmount),
-      },
-      gas: "60000000000000",
-      amount: ONE_YOCTO_NEAR
-    }]
-  }
-  let transactions = [transferTx]
-
-  let registered = window.contract.storage_balance_of({
-    account_id: window.walletConnection.getAccountId()
-  });
-  if (!parseInt(registered)) {
-    let depositTx = {
-      receiverId: nearConfig.contractName,
-      functionCalls: [{
-        methodName: "storage_deposit",
-        args: {
-          account_id: transferTo,
-          registery_only: true
-        },
-        gas: "10000000000000",
-        amount: STAKING_STORAGE_AMOUNT
-      }]
-    }
-    transactions.unshift(depositTx);
-  }
-  await executeMultipleTransactions(transactions);
-}
 
 async function myCreateTransaction({ receiverId, actions, nonceOffset = 1 }) {
   const localKey = await window.walletConnection.account().connection.signer.getPublicKey(

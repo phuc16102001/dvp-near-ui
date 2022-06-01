@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
-import { Button, InputNumber, Input, Tooltip } from "antd";
-import { InfoCircleOutlined, UserOutlined } from "@ant-design/icons";
-import { transferToken } from "../../utils/near";
+import TransferForm from "../../components/TransferForm";
+import { transferToken } from "../../utils/ft-api";
 
 const TransferPage = () => {
   const [metadata, setMetaData] = useState({});
@@ -29,52 +27,25 @@ const TransferPage = () => {
   };
 
   const handleTransferToken = () => {
-    console.log(transferAmount)
+    console.log(transferAmount);
     transferToken(transferTo, transferAmount);
   };
 
   useEffect(() => {
     refreshData();
-  }, [
-    window.walletConnection.isSignedIn(),
-    window.walletConnection.getAccountId(),
-  ]);
+  }, []);
 
   return (
-    <div className="p-5 bg-white rounded-lg">
-      <h1>Account information</h1>
-      <div className="p-2 grid grid-cols-2">
-        <div>Account id:</div>
-        <div>{window.walletConnection.getAccountId()}</div>
-        <div>Balance:</div>
-        <div>
-          {accountBalance} {metadata.symbol}
-        </div>
-      </div>
-      <hr className="m-2" />
-      <h1>Transfer</h1>
-      <div className="flex flex-col">
-        <InputNumber
-          className="mt-2 mb-2"
-          placeholder="Amount"
-          min={0}
-          max={accountBalance}
-          value={transferAmount}
-          onChange={setTransferAmount}
-          addonAfter={metadata.symbol}
-        />
-        <Input
-          value={transferTo}
-          onChange={(e)=>{setTransferTo(e.target.value)}}
-          className="mt-2 mb-2"
-          placeholder="To"
-          prefix={<UserOutlined className="site-form-item-icon" />}
-        />
-        <Button className="mb-2 mt-2" type="primary" onClick={handleTransferToken}>
-          Send
-        </Button>
-      </div>
-    </div>
+    <TransferForm
+      accountId={window.walletConnection.getAccountId()}
+      balance={accountBalance}
+      metadata={metadata}
+      transferAmount={transferAmount}
+      onChangeTransferAmount={setTransferAmount}
+      transferTo={transferTo}
+      onChangeTransferTo={setTransferTo}
+      onSubmit={handleTransferToken}
+    />
   );
 };
 
