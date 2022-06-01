@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-import TokenCard from "../TokenCard";
+import TokenCard from "../../components/TokenCard";
 import { useState } from "react";
 
-import getConfig from "../../utils/config";
-
-const Content = () => {
+const TokenPage = () => {
   const [tokenIcon, setTokenIcon] = useState();
   const [tokenName, setTokenName] = useState();
   const [tokenSymbol, setTokenSymbol] = useState();
@@ -12,7 +10,7 @@ const Content = () => {
 
   useEffect(() => {
     window.contract.ft_metadata().then((data) => {
-      setTokenIcon(data.icon)
+      setTokenIcon(data.icon);
       setTokenName(data.name);
       setTokenSymbol(data.symbol);
     });
@@ -23,7 +21,7 @@ const Content = () => {
 
   return (
     <>
-      <div className="content-center p-2">
+      <div>
         <TokenCard
           icon={tokenIcon}
           tokenName={tokenName}
@@ -35,4 +33,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default TokenPage;
