@@ -1,6 +1,6 @@
 import React from "react";
 import { Button, InputNumber, Input } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { UserOutlined, MailOutlined } from "@ant-design/icons";
 
 const TransferForm = (props) => {
   let accountId = props.accountId || "";
@@ -10,6 +10,8 @@ const TransferForm = (props) => {
   let onChangeTransferAmount = props.onChangeTransferAmount;
   let transferTo = props.transferTo || "";
   let onChangeTransferTo = props.onChangeTransferTo;
+  let memo = props.memo;
+  let onChangeMemo = props.onChangeMemo;
   let onSubmit = props.onSubmit;
 
   return (
@@ -26,6 +28,15 @@ const TransferForm = (props) => {
       <hr className="m-2" />
       <h1>Transfer</h1>
       <div className="flex flex-col">
+        <Input
+          value={transferTo}
+          onChange={(e) => {
+            onChangeTransferTo(e.target.value);
+        }}
+          className="mt-2 mb-2"
+          placeholder="To"
+          prefix={<UserOutlined className="site-form-item-icon" />}
+        />
         <InputNumber
           className="mt-2 mb-2"
           placeholder="Amount"
@@ -33,16 +44,16 @@ const TransferForm = (props) => {
           max={accountBalance}
           value={transferAmount}
           onChange={onChangeTransferAmount}
-          addonAfter={metadata.symbol}
+          addonBefore={metadata.symbol}
         />
         <Input
-          value={transferTo}
+          value={memo}
           onChange={(e) => {
-            onChangeTransferTo(e.target.value);
-          }}
+            onChangeMemo(e.target.value);
+        }}
           className="mt-2 mb-2"
-          placeholder="To"
-          prefix={<UserOutlined className="site-form-item-icon" />}
+          placeholder="Memo"
+          prefix={<MailOutlined className="site-form-item-icon" />}
         />
         <Button
           className="mb-2 mt-2"

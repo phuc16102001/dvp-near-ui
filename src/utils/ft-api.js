@@ -1,6 +1,6 @@
 import { nearConfig, ONE_YOCTO_NEAR, STAKING_STORAGE_AMOUNT, executeMultipleTransactions } from './near.js'
 
-export async function transferToken(transferTo, transferAmount) {
+export async function transferToken(transferTo, transferAmount, memo) {
     let transferTx = {
         receiverId: nearConfig.contractName,
         functionCalls: [{
@@ -8,6 +8,7 @@ export async function transferToken(transferTo, transferAmount) {
             args: {
                 receiver_id: transferTo,
                 amount: String(transferAmount),
+                memo: memo
             },
             gas: "60000000000000",
             amount: ONE_YOCTO_NEAR

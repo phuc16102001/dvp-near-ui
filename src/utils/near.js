@@ -38,8 +38,7 @@ export function login() {
 export async function executeMultipleTransactions(transactions, callbackUrl) {
   const nearTransactions = await Promise.all(
     transactions.map((tx, i) => {
-      console.log(tx)
-      let tranx = myCreateTransaction({
+      return myCreateTransaction({
         receiverId: tx.receiverId,
         nonceOffset: i + 1,
         actions: tx.functionCalls.map((fc) =>
@@ -51,10 +50,8 @@ export async function executeMultipleTransactions(transactions, callbackUrl) {
           )
         ),
       })
-      return tranx;
     }),
   )
-  console.log(nearTransactions)
   await window.walletConnection.requestSignTransactions(nearTransactions, callbackUrl);
 };
 

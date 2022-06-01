@@ -7,6 +7,7 @@ const TransferPage = () => {
   const [accountBalance, setAccountBalance] = useState(0);
   const [transferAmount, setTransferAmount] = useState(0);
   const [transferTo, setTransferTo] = useState("");
+  const [memo, setMemo] = useState("");
 
   const getBalance = async () => {
     let balance = 0;
@@ -28,7 +29,7 @@ const TransferPage = () => {
 
   const handleTransferToken = () => {
     console.log(transferAmount);
-    transferToken(transferTo, transferAmount);
+    transferToken(transferTo, transferAmount, memo);
   };
 
   useEffect(() => {
@@ -44,6 +45,8 @@ const TransferPage = () => {
       onChangeTransferAmount={setTransferAmount}
       transferTo={transferTo}
       onChangeTransferTo={setTransferTo}
+      memo={memo}
+      onChangeMemo={setMemo}
       onSubmit={handleTransferToken}
     />
   );
