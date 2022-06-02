@@ -16,10 +16,12 @@ export async function transferToken(transferTo, transferAmount, memo) {
     }
     let transactions = [transferTx]
 
-    let registered = window.contract.storage_balance_of({
-        account_id: window.walletConnection.getAccountId()
+    let registered = await window.contract.storage_balance_of({
+        account_id: transferTo
     });
-    if (!parseInt(registered)) {
+    console.log(registered)
+
+    if (registered === null) {
         let depositTx = {
             receiverId: nearConfig.contractName,
             functionCalls: [{

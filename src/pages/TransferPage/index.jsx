@@ -28,7 +28,6 @@ const TransferPage = () => {
   };
 
   const handleTransferToken = () => {
-    console.log(transferAmount);
     transferToken(transferTo, transferAmount, memo);
   };
 
