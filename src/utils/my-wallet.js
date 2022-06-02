@@ -18,7 +18,7 @@ export default class MyWalletConnection extends WalletConnection {
         return this._walletAccount;
     }
 
-    createTransaction = (receiverId, actions, nonceOffset = 1) => {
+    createTransaction = ({receiverId, actions, nonceOffset = 1}) => {
         return this._walletAccount.createTransaction({ receiverId, actions, nonceOffset });
     }
 }

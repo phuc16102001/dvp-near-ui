@@ -1,4 +1,12 @@
 import { nearConfig, ONE_YOCTO_NEAR, STAKING_STORAGE_AMOUNT, executeMultipleTransactions } from './near.js'
+import { Contract } from 'near-api-js'
+
+export async function initFtContract() {
+  window.ftContract = await new Contract(window.walletConnection.account(), nearConfig.ftContractName, {
+    viewMethods: ['ft_metadata', 'ft_balance_of', 'ft_total_supply', 'storage_balance_of'],
+    changeMethods: ['ft_transfer', 'storage_deposit'],
+  })
+}
 
 export async function transferToken(transferTo, transferAmount, memo) {
     let transferTx = {
@@ -16,7 +24,7 @@ export async function transferToken(transferTo, transferAmount, memo) {
     }
     let transactions = [transferTx]
 
-    let registered = await window.contract.storage_balance_of({
+    let registered = await window.ftContract.storage_balance_of({
         account_id: transferTo
     });
 

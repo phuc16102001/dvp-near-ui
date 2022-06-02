@@ -1,11 +1,14 @@
-import { Contract, keyStores, Near, utils, WalletAccount, WalletConnection } from 'near-api-js'
+import { keyStores, Near, utils } from 'near-api-js'
 import getConfig from './config'
 import { functionCall } from 'near-api-js/lib/transaction';
 import BN from 'bn.js';
 import MyWalletConnection from './my-wallet';
+import { initFtContract } from './ft-api';
+import { initFaucetContract } from './faucet-api';
 
 export const nearConfig = getConfig(process.env.NODE_ENV || 'development')
 export const ONE_YOCTO_NEAR = '0.000000000000000000000001';
+export const TWO_YOCTO_NEAR = '0.000000000000000000000002';
 export const STAKING_STORAGE_AMOUNT = '0.01';
 
 export async function initContract() {
@@ -19,10 +22,8 @@ export async function initContract() {
   window.walletConnection = new MyWalletConnection(near)
   window.accountId = window.walletConnection.getAccountId()
 
-  window.ftContract = await new Contract(window.walletConnection.account(), nearConfig.ftContractName, {
-    viewMethods: ['ft_metadata', 'ft_balance_of', 'ft_total_supply', 'storage_balance_of'],
-    changeMethods: ['ft_transfer', 'storage_deposit'],
-  })
+  await initFtContract();
+  await initFaucetContract();
 }
 
 export function logout() {
