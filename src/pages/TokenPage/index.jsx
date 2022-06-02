@@ -9,12 +9,12 @@ const TokenPage = () => {
   const [totalSupply, setTotalSupply] = useState();
 
   useEffect(() => {
-    window.contract.ft_metadata().then((data) => {
+    window.ftContract.ft_metadata().then((data) => {
       setTokenIcon(data.icon);
       setTokenName(data.name);
       setTokenSymbol(data.symbol);
     });
-    window.contract
+    window.ftContract
       .ft_total_supply()
       .then((totalSupply) => setTotalSupply(totalSupply));
   }, []);

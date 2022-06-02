@@ -12,7 +12,7 @@ const TransferPage = () => {
   const getBalance = async () => {
     let balance = 0;
     if (window.walletConnection.isSignedIn()) {
-      balance = await window.contract.ft_balance_of({
+      balance = await window.ftContract.ft_balance_of({
         account_id: window.walletConnection.getAccountId(),
       });
     }
@@ -20,7 +20,7 @@ const TransferPage = () => {
   };
 
   const getMetadata = async () => {
-    setMetaData(await window.contract.ft_metadata());
+    setMetaData(await window.ftContract.ft_metadata());
   };
 
   const refreshData = () => {

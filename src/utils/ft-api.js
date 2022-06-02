@@ -2,7 +2,7 @@ import { nearConfig, ONE_YOCTO_NEAR, STAKING_STORAGE_AMOUNT, executeMultipleTran
 
 export async function transferToken(transferTo, transferAmount, memo) {
     let transferTx = {
-        receiverId: nearConfig.contractName,
+        receiverId: nearConfig.ftContractName,
         functionCalls: [{
             methodName: "ft_transfer",
             args: {
@@ -19,11 +19,10 @@ export async function transferToken(transferTo, transferAmount, memo) {
     let registered = await window.contract.storage_balance_of({
         account_id: transferTo
     });
-    console.log(registered)
 
     if (registered === null) {
         let depositTx = {
-            receiverId: nearConfig.contractName,
+            receiverId: nearConfig.ftContractName,
             functionCalls: [{
                 methodName: "storage_deposit",
                 args: {
