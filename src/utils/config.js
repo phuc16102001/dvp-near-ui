@@ -1,5 +1,6 @@
 const FAUCET_CONTRACT_NAME = 'faucet.phuc16102001.testnet'
 const FT_CONTRACT_NAME = 'ft.phuc16102001.testnet'
+const STAKING_CONTRACT_NAME = 'dev-1654255489604-90346948389505'
 
 function getConfig(env) {
   switch (env) {
@@ -9,6 +10,7 @@ function getConfig(env) {
     return {
       networkId: 'mainnet',
       nodeUrl: 'https://rpc.mainnet.near.org',
+      stakingContractName: STAKING_CONTRACT_NAME,
       ftContractName: FT_CONTRACT_NAME,
       faucetContractName: FAUCET_CONTRACT_NAME,
       walletUrl: 'https://wallet.near.org',
@@ -20,6 +22,7 @@ function getConfig(env) {
     return {
       networkId: 'testnet',
       nodeUrl: 'https://rpc.testnet.near.org',
+      stakingContractName: STAKING_CONTRACT_NAME,
       ftContractName: FT_CONTRACT_NAME,
       faucetContractName: FAUCET_CONTRACT_NAME,
       walletUrl: 'https://wallet.testnet.near.org',
@@ -30,6 +33,7 @@ function getConfig(env) {
     return {
       networkId: 'betanet',
       nodeUrl: 'https://rpc.betanet.near.org',
+      stakingContractName: STAKING_CONTRACT_NAME,
       ftContractName: FT_CONTRACT_NAME,
       faucetContractName: FAUCET_CONTRACT_NAME,
       walletUrl: 'https://wallet.betanet.near.org',
@@ -41,6 +45,7 @@ function getConfig(env) {
       networkId: 'local',
       nodeUrl: 'http://localhost:3030',
       keyPath: `${process.env.HOME}/.near/validator_key.json`,
+      stakingContractName: STAKING_CONTRACT_NAME,
       walletUrl: 'http://localhost:4000/wallet',
       faucetContractName: FAUCET_CONTRACT_NAME,
       ftContractName: FT_CONTRACT_NAME,
@@ -49,6 +54,7 @@ function getConfig(env) {
   case 'ci':
     return {
       networkId: 'shared-test',
+      stakingContractName: STAKING_CONTRACT_NAME,
       nodeUrl: 'https://rpc.ci-testnet.near.org',
       faucetContractName: FAUCET_CONTRACT_NAME,
       ftContractName: FT_CONTRACT_NAME,
@@ -57,6 +63,7 @@ function getConfig(env) {
   case 'ci-betanet':
     return {
       networkId: 'shared-test-staging',
+      stakingContractName: STAKING_CONTRACT_NAME,
       nodeUrl: 'https://rpc.ci-betanet.near.org',
       faucetContractName: FAUCET_CONTRACT_NAME,
       ftContractName: FT_CONTRACT_NAME,

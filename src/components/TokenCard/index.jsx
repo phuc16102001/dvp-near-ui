@@ -1,6 +1,6 @@
 import React from "react";
 import { Card as AntCard } from "antd";
-import './style.css'
+import "./style.css";
 
 const TokenCard = (props) => {
   let icon = props.icon || "";
@@ -11,7 +11,7 @@ const TokenCard = (props) => {
     <div className="site-card-border-less-wrapper">
       <AntCard
         title={symbol}
-        extra={<img src={icon} alt="icon" className="w-8 h-8 rounded"/>}
+        extra={<img src={icon} alt="icon" className="w-8 h-8 rounded-lg" />}
         bordered={false}
         style={{
           width: 300,

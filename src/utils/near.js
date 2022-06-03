@@ -5,6 +5,7 @@ import BN from 'bn.js';
 import MyWalletConnection from './my-wallet';
 import { initFtContract } from './ft-api';
 import { initFaucetContract } from './faucet-api';
+import { initStakingContract } from './staking-api';
 
 export const nearConfig = getConfig(process.env.NODE_ENV || 'development')
 export const ONE_YOCTO_NEAR = '0.000000000000000000000001';
@@ -24,6 +25,7 @@ export async function initContract() {
 
   await initFtContract();
   await initFaucetContract();
+  await initStakingContract();
 }
 
 export function logout() {
