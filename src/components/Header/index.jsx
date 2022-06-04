@@ -4,7 +4,7 @@ import { LoginOutlined } from "@ant-design/icons";
 import { Button, Menu } from "antd";
 import { useNavigate } from "react-router";
 
-const menuItem = ["Token", "Transfer", "Staking", "Faucet"].map((key) => ({
+const menuItem = ["Home", "Transfer", "Staking", "Faucet"].map((key) => ({
   key: key.toLowerCase(),
   label: key,
 }));

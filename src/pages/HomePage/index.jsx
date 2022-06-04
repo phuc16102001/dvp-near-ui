@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import TokenCard from "../../components/TokenCard";
 import { useState } from "react";
 
-const TokenPage = () => {
+const HomePage = () => {
   const [tokenIcon, setTokenIcon] = useState();
   const [tokenName, setTokenName] = useState();
   const [tokenSymbol, setTokenSymbol] = useState();
@@ -33,4 +33,4 @@ const TokenPage = () => {
   );
 };
 
-export default TokenPage;
+export default HomePage;
