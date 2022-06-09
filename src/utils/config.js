@@ -18,6 +18,16 @@ function getConfig(env) {
       explorerUrl: 'https://explorer.mainnet.near.org',
     }
   case 'development':
+    return {
+      networkId: 'testnet',
+      nodeUrl: 'https://rpc.testnet.near.org',
+      stakingContractName: STAKING_CONTRACT_NAME,
+      ftContractName: FT_CONTRACT_NAME,
+      faucetContractName: FAUCET_CONTRACT_NAME,
+      walletUrl: 'https://wallet.testnet.near.org',
+      helperUrl: 'https://helper.testnet.near.org',
+      explorerUrl: 'https://explorer.testnet.near.org',
+    }
   case 'testnet':
     return {
       networkId: 'testnet',
