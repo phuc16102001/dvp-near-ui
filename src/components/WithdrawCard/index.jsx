@@ -11,7 +11,7 @@ const UnstakeCard = (props) => {
   const predict_time = new Date((unstakeStartTime / 1_000_000) + 12*60*60*1000);
 
   return (
-    <div className="p-5 bg-white rounded-lg shadow-ms">
+    <div className="p-5 bg-white rounded-lg shadow-md">
       <h1>Withdraw information</h1>
       <div className="p-2 grid grid-cols-2 gap-x-2">
         <div>Unstaked balance:</div>

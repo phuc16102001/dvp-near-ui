@@ -11,9 +11,24 @@ Blockchain technologies are very hard and require a high technical skill to use.
 
 ## Gallery
 
+<p align="center">
+  <img width="640" height="300" src="res/ui.png">
+</p>
+<p align="center">
+    <b>Staking view</b>
+</p>
+
 ## Code exploration
+The application builds with ReactJS framework with the structure as following:
+- `components`: The components which are used on pages
+- `pages`: The pages of application
+- `utils`: The utility services for interact with contracts
 
 ## Smart contracts
+In the application, I have used several relative smart contracts:
+- [Fungible token](https://github.com/phuc16102001/near-dvp-ft)
+- [Faucet contract](https://github.com/phuc16102001/near-dvp-faucet)
+- [Staking contract](https://github.com/phuc16102001/near-dvp-staking)
 
 ## Contributions
-This source code is owned by Do Vuong Phuc, please **DO NOT COPY** without permission
+This source code is owned by Do Vuong Phuc, please **DO NOT COPY** without permission!
