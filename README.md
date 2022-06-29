@@ -31,4 +31,4 @@ In the application, I have used several relative smart contracts:
 - [Staking contract](https://github.com/phuc16102001/near-dvp-staking)
 
 ## Contributions
-This source code is owned by Do Vuong Phuc, please **DO NOT COPY** without permission!
+This source code is owned by [phuc16102001](https://github.com/phuc16102001), please **DO NOT COPY** without permission!
