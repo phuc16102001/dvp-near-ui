@@ -15,7 +15,7 @@ const TransferForm = (props) => {
   let onSubmit = props.onSubmit;
 
   return (
-    <div className="p-5 bg-white rounded-lg">
+    <div className="p-5 bg-white rounded-lg shadow-md">
       <h1>Account information</h1>
       <div className="p-2 grid grid-cols-2">
         <div>Account id:</div>

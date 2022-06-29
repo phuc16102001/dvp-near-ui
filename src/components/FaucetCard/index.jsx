@@ -14,7 +14,7 @@ const FaucetCard = (props) => {
 
   return (
     <div>
-      <div className="p-5 bg-white rounded-lg">
+      <div className="p-5 bg-white rounded-lg shadow-md">
         <h1>Faucet pool</h1>
         <div className="p-2 grid gap-x-3 grid-cols-2">
           <div>Total shared accounts:</div>

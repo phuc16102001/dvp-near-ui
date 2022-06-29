@@ -8,7 +8,7 @@ const PoolCard = (props) => {
   const symbol = props.symbol || "";
 
   return (
-    <div className="p-5 bg-white rounded-lg">
+    <div className="p-5 bg-white rounded-lg shadow-md">
       <h1>Pool information</h1>
       <div className="p-2 grid grid-cols-2 gap-x-2">
         <div>Total staked balance:</div>

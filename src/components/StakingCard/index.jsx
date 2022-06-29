@@ -15,7 +15,7 @@ const StakingCard = (props) => {
   const onHarvest = props.onHarvest;
 
   return (
-    <div className="p-5 bg-white rounded-lg">
+    <div className="p-5 bg-white rounded-lg shadow-md">
       <div className="flex flex-col">
         <h1>Staking information</h1>
         <div className="p-2 grid grid-cols-2 gap-x-2">
