@@ -8,7 +8,7 @@ const TokenCard = (props) => {
   let tokenName = props.tokenName || "Name";
   let totalSupply = props.totalSupply || 0;
   return (
-    <div className="site-card-border-less-wrapper rounded-xl shadow-md">
+    <div className="site-card-border-less-wrapper bg-white rounded-xl shadow-md">
       <AntCard
         title={symbol}
         extra={<img src={icon} alt="icon" className="w-8 h-8 rounded-lg" />}
