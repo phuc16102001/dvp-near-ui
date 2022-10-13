@@ -26,7 +26,7 @@ The application builds with ReactJS framework with the structure as following:
 
 ## Smart contracts
 In the application, I have used several relative smart contracts:
-- [Fungible token](https://github.com/phuc16102001/near-dvp-ft)
+- [Fungible token](contract/fungible-token)
 - [Faucet contract](https://github.com/phuc16102001/near-dvp-faucet)
 - [Staking contract](https://github.com/phuc16102001/near-dvp-staking)
 
