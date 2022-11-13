@@ -1,5 +1,12 @@
 # DVP Application Frontend
 
+<div>
+  <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
+  <img src="https://img.shields.io/badge/rust-%23000000.svg?style=for-the-badge&logo=rust&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white"/>
+</div>
+
 ## Introduction
 
 Blockchain technologies are very hard and require a high technical skill to use. Because of that reason, to become user-friendly, frontend UI is important. This is a repository of a website that provides usability on a token called DVP (Do Vuong Phuc) with different features:
@@ -31,4 +38,7 @@ In the application, I have used several relative smart contracts:
 - [Staking contract](contract/staking-contract)
 
 ## Contributions
-This source code is owned by [phuc16102001](https://github.com/phuc16102001), please **DO NOT COPY** without permission!
+This source code is owned by [phuc16102001](https://github.com/phuc16102001)
+
+## License
+[MIT](LICENSE)
